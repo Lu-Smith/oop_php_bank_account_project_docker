@@ -8,3 +8,7 @@ require_once './bankAccount.php';
 $accounts = loadAccountsFromCSV(__DIR__ . '/../accounts.csv');
 
 require_once '../views/list.php';
+
+$action = $_POST['action'] ?? '';
+$amount = $_POST['deposit_amount'] ?? $_POST['withdraw_amount'] ?? 0.0;
+
