@@ -8,7 +8,8 @@ class BankAccount {
     private string $firstName,
     private string $middleName,
     private string $lastName,
-    private int $balance = 0
+    private float $balance = 0,
+    public float $amount = 0
   )
   {
 
@@ -20,6 +21,21 @@ class BankAccount {
 
     return $this->firstName . ' ' .$this->middleName . ' ' . $this->lastName; 
   }
-  public function getBalance(): int { return $this->balance; }
+  public function getBalance(): float { return $this->balance; }
 
+  public function withdraw(float $amount): float {
+    if ($amount <= 0 || $amount > $this->balance) {
+        throw new Exception("Invalid withdrawal amount");
+    }
+    $this->balance -= $amount;
+    return $this->balance;
+}
+
+public function deposit(float $amount): float {
+    if ($amount <= 0) {
+        throw new Exception("Invalid deposit amount");
+    }
+    $this->balance += $amount;
+    return $this->balance;
+}
 }
