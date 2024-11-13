@@ -18,7 +18,7 @@ function loadAccountsFromCSV(string $file): array
         (string) $firstName,
         (string) $middleName,
         (string) $lastName,
-        (int) $balance
+        (int) $balance,
       );
     }
 
