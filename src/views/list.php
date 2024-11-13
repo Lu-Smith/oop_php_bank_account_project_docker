@@ -16,11 +16,13 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach($accounts as $account): ?>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><?= htmlspecialchars($account->getAccountNumber()) ?></td>
+        <td><?= htmlspecialchars($account->getName()) ?></td>
+        <td><?= htmlspecialchars(number_format($account->getBalance(), 2)) ?></td>
       </tr>
+      <?php endforeach ?>
     </tbody>
   </table>
 </body>
