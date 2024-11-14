@@ -5,9 +5,9 @@ declare(strict_types=1);
 class BankAccount {
   public function __construct(
     private int $accountNumber,
-    private string $firstName,
-    private string $middleName,
-    private string $lastName,
+    public string $firstName,
+    public string $middleName,
+    public string $lastName,
     private float $balance = 0,
   )
   {}
