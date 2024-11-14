@@ -23,11 +23,15 @@
         <td><?= htmlspecialchars($account->getName()) ?></td>
         <td><?= htmlspecialchars(number_format($account->getBalance(), 2)) ?></td>
         <td>
-          <form action="process_transaction.php" method="POST">
-            <input type="number" name="deposit_amount" placeholder="deposit">
-            <button type="submit" name="action" value="deposit">Submit Deposit</button>
-            <input type="number" name="withdraw_amount" placeholder="withdraw">
-            <button type="submit" name="action" value="withdraw">Submit Withdraw</button>
+        <form method="POST" style="display:inline-block;">
+            <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+            <input type="hidden" name="account_index" value="<?= $index ?>">
+            <button type="submit" name="action" value="deposit">Deposit</button>
+          </form>
+          <form method="POST" style="display:inline-block;">
+            <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+            <input type="hidden" name="account_index" value="<?= $index ?>">
+            <button type="submit" name="action" value="withdraw">Withdraw</button>
           </form>
         </td>
       </tr>
