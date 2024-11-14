@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach($accounts as $account): ?>
+      <?php foreach($accounts as $index => $account): ?>
       <tr>
         <td><?= htmlspecialchars($account->getAccountNumber()) ?></td>
         <td><?= htmlspecialchars($account->getName()) ?></td>
