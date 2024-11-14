@@ -18,7 +18,7 @@ function loadAccountsFromCSV(string $file): array
         (string) $firstName,
         (string) $middleName,
         (string) $lastName,
-        (int) $balance,
+        (float) $balance,
       );
     }
 
@@ -26,4 +26,21 @@ function loadAccountsFromCSV(string $file): array
   }
 
   return $accounts;
+}
+
+function saveAccountsToCSV(array $accounts, string $filePath): void {
+  $file = fopen($filePath, 'w');
+
+  fputcsv($file, ['AccountNumber', 'FirstName', 'MiddleName', 'LastName', 'Balance']);
+  
+  foreach ($accounts as $account) {
+      fputcsv($file, [
+          $account->getAccountNumber(),
+          $account->firstName,
+          $account->middleName,
+          $account->lastName,
+          $account->getBalance()
+      ]);
+  }
+  fclose($file);
 }
