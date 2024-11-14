@@ -9,16 +9,12 @@ class BankAccount {
     private string $middleName,
     private string $lastName,
     private float $balance = 0,
-    public float $amount = 0
   )
-  {
-
-  }
+  {}
 
   public function getAccountNumber(): int { return $this->accountNumber; }
   public function getName(): string 
   { 
-
     return $this->firstName . ' ' .$this->middleName . ' ' . $this->lastName; 
   }
   public function getBalance(): float { return $this->balance; }
